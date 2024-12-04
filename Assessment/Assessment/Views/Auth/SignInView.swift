@@ -1,5 +1,5 @@
 //
-//  SignUpView.swift
+//  SignInView.swift
 //  Assessment
 //
 //  Created by Arslan  on 03/12/2024.
@@ -7,10 +7,9 @@
 
 import SwiftUI
 
-struct SignUpView: View {
-    @State var email = ""
-    @State var password = ""
+struct SignInView: View {
     @EnvironmentObject var router:Router
+    @StateObject var viewModel = AuthViewModel()
     var body: some View {
         ZStack {
             // Background color
@@ -42,7 +41,7 @@ struct SignUpView: View {
                                 .foregroundColor(.white)
                                 .fontWeight(.medium)
                             CustomTextField(
-                                text:$email,
+                                text:$viewModel.email,
                                 placeholder: "Enter your email",
                                 foregroundColor: .black,
                                 backgroundColor: .white,
@@ -60,7 +59,7 @@ struct SignUpView: View {
                                 .foregroundColor(.white)
                                 .fontWeight(.medium)
                             CustomSecureField(
-                                text:$password,
+                                text:$viewModel.password,
                                 placeholder: "Enter password",
                                 foregroundColor: .black,
                                 backgroundColor: .white,
@@ -74,7 +73,9 @@ struct SignUpView: View {
                         HorizontalButton(
                             title: "Sign In",
                             action: {
-                                router.navigate(to:.passKey)
+                                viewModel.authenticate()
+                                if viewModel.isAuthenticated {       router.navigate(to:.passKey)}
+                                
                             },
                             backgroundColor:(Color.buttonBg ?? .blue),
                             height: 40,
@@ -90,7 +91,7 @@ struct SignUpView: View {
                         HorizontalButton(
                             title: "Sign in with Passkey",
                             action: {
-                                router.navigate(to:.passKey)
+                                if viewModel.isAuthenticated {       router.navigate(to:.passKey)}
                             },
                             backgroundColor: Color.white,
                             forgroundColor: Color.buttonBg ?? .blue, height: 40,
@@ -147,10 +148,17 @@ struct SignUpView: View {
                 }
                 
                 
-            }        }
+            }        }  // Alert view
+        .alert(isPresented:$viewModel.showAlert) {
+            Alert(
+                title: Text("Error"),
+                message: Text(viewModel.errorMessage ?? ""),
+                dismissButton: .default(Text("OK"))
+            )
+        }
     }
 }
 
 #Preview {
-    SignUpView()
+    SignInView()
 }

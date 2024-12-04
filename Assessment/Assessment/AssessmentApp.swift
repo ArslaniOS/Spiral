@@ -14,11 +14,11 @@ struct AssessmentApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $router.navPath)  {
-                SignUpView()
+                SignInView()
                     .navigationDestination(for: Router.AuthFlow.self) { destination in
                         switch destination {
                         case .login:
-                            SignUpView()
+                            SignInView()
                         case .home:
                             HomeView()
                         case .passKey:
