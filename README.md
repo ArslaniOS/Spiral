@@ -68,5 +68,5 @@ To set up and run this project locally, follow these steps:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/spiral-authentication.git
+   git clone https://github.com/ArslaniOS/Spiral.git
 
