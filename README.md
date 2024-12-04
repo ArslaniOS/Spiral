@@ -42,18 +42,13 @@ A custom **Root Navigation Class** is implemented to handle navigation and pop-u
 
 ---
 
-## Limitations & Future Enhancements
+## Limitations
 
-### Limitations:
-- **Registration Form:** Due to time constraints, the registration functionality has not been implemented. Future versions will include a registration form.
-- **Profile Data:** Profile data viewing and editing are not fully implemented yet. The current version focuses on authentication and the home screen.
-- **Test Coverage:** The code is structured to be testable, but further unit tests and UI tests will be added in future releases.
+### 1. Incomplete Views
+Due to time constraints, not all views have been created. However, the current work should be sufficient to showcase my coding style and approach to the project.
 
-### Future Enhancements:
-- **User Registration:** Future updates will include a registration form with email/password authentication and validation.
-- **Profile Management:** Full profile management functionality will be added, allowing users to view and edit their profiles.
-- **Enhanced Security:** Features such as Two-Factor Authentication (2FA) and OAuth integration will be considered for improved security.
-- **Backend Integration:** Mock data handling will eventually be replaced with real backend integration when an API is available.
+### 2. Authentication UI Design
+The authentication flow does not exactly match the Figma design. To fully match the design, a background image would be required to manage the flow and layers of images. Combining these images together on the frontend is a complex task, which is why I opted for using a gradient function to achieve something close to the design.
 
 ---
 
@@ -74,3 +69,4 @@ To set up and run this project locally, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/spiral-authentication.git
+
