@@ -41,6 +41,12 @@ A modular approach allows different UI components to be added or replaced easily
 A custom **Root Navigation Class** is implemented to handle navigation and pop-up screens. This ensures that the app’s navigation flow is flexible and easy to manage.
 
 ---
+## Root Navigation System
+In this project, I have implemented a custom Root Navigation class to manage the navigation flow between views. This custom navigation system helps track the transitions between screens and ensures smooth navigation. The class also manages the root views, making it easier to implement fallback views in case of specific conditions (such as errors or fallback scenarios).
+
+Additionally, I used the MainAppWindow to maintain the hierarchy of navigable views. This ensures that the navigation flow is organized in a way that makes sense for the app, keeping track of the root view and allowing for future scalability.
+
+If the project scope expands, the navigable views will be handled module-wise. This approach will prevent any unnecessary burden on the App Window, ensuring that each module can manage its own navigation stack independently. This modular navigation structure makes it easy to scale the app in the future without overcrowding the main app window.
 
 ## Limitations
 
@@ -68,5 +74,5 @@ To set up and run this project locally, follow these steps:
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/spiral-authentication.git
+   git clone https://github.com/ArslaniOS/Spiral.git
 
